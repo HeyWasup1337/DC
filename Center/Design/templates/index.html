@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Center</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Добро пожаловать в Dream center</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="{% url 'about' %}">О нас</a></li>
+
+                    <li><a href="{% url 'contact' %}">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Учитесь у нас</h2>
+                <p>Записывайтесь на курсы</p>
+                <button onclick="location.href='{% url 'about' %}'">Узнать больше</button>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="container">
+                <div class="feature">
+                    <h3>Курс 1</h3>
+                    <p>Описание первой курса</p>
+                </div>
+                <div class="feature">
+                    <h3>Курс 2</h3>
+                    <p>Описание второго курса</p>
+                </div>
+                <div class="feature">
+                    <h3>Курс 3</h3>
+                    <p>Описание третьей курса</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dream Center. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

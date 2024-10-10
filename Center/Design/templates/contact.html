@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Dream Center</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Контакты</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Главная</a></li>
+                    <li><a href="{% url 'about' %}">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Основной раздел с контактной информацией -->
+            <section class="contact-info">
+                <h2>Свяжитесь с нами</h2>
+                <p>Если у вас есть вопросы, пожалуйста, напишите нам на электронную почту или позвоните по телефону:</p>
+                <p><strong>Email:</strong> <a href="mailto:info@dreamcenter.com">info@dreamcenter.com</a></p>
+                <p><strong>Телефон:</strong> +7 (123) 456-7890</p>
+            </section>
+
+            <!-- Форма обратной связи -->
+            <section class="contact-form">
+                <h2>Отправить сообщение</h2>
+                <form action="{% url 'contact_submit' %}" method="post">
+                    {% csrf_token %}
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required placeholder="Ваше имя">
+
+                    <label for="email">Электронная почта:</label>
+                    <input type="email" id="email" name="email" required placeholder="Ваш email">
+
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Ваше сообщение"></textarea>
+
+                    <button type="submit">Отправить</button>
+                </form>
+            </section>
+
+            <!-- Карта -->
+            <section class="location-map">
+                <h2>Наш офис</h2>
+                <p>Мы находимся по адресу:</p>
+                <p><strong>Адрес:</strong> Muhammad Yusuf street 1a, Ташкент, Узбекистан</p>
+                
+                <!-- Вставка карты с помощью Google Maps -->
+                <div class="map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6023271245997!2d69.32862517698034!3d41.3143155268617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38b3f39c1214d823%3A0x2f9b6f9152d8f0e8!2z0K3QsNC90LXQutC-0YbQu9Cw0LnQutC-0Y8g0KTQs9C10LzQuNGA0LzQvdC-0YbQu9Cw0LnQutC-0Y8!5e0!3m2!1sen!2sru!4v1605285987878!5m2!1sen!2sru" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        aria-hidden="false" 
+                        tabindex="0">
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Дополнительная информация -->
+            <section class="additional-info">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Перед тем как написать нам, ознакомьтесь с <a href="{% url 'faq' %}">разделом FAQ</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dream Center. Все права защищены.</p>
+            <p><a href="{% url 'privacy_policy' %}">Политика конфиденциальности</a> | <a href="{% url 'terms_of_service' %}">Условия использования</a></p>
+        </div>
+    </footer>
+</body>
+</html>

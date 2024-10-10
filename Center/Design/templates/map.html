@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта с маркером</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <style>
+        #map {
+            height: 400px; /* Высота карты */
+            width: 100%; /* Ширина карты */
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+    function initMap() {
+        var location = {lat: 41.314552, lng: 69.328432}; // Ваши координаты
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: location
+        });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: 'IT Park',
+            icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png" // Красный маркер
+            }
+        });
+    }
+
+    window.onload = initMap; // Инициализация карты при загрузке
+</script>
+
+</body>
+</html>
